@@ -1,3 +1,5 @@
+# LASSO PIPELINE
+
 library(tidyverse)
 library(useful)
 library(ggfortify)
@@ -7,14 +9,18 @@ library("glmnet")
 library(lmtest)
 library(textclean)
 library(ROCR)
-theme_set(theme_gray(base_size = 18))
+# Set my favorite ggplot settings
+cai_theme<- theme_gray(base_size = 18) + 
+  theme(plot.title = element_text(face = "bold", hjust = 0.5), 
+        plot.subtitle= element_text(hjust=0.5), 
+        legend.text = element_text(size=12), 
+        legend.title = element_text(size = 12))
+theme_set(cai_theme)
 
 samples<- "example/samples.txt"
 expr<- "example/expr.txt"
 outname<- "test"
 subtit<- "Test"
-
-df[sample(nrow(df), 3), ]
 
 #####
 # LOAD DATA
